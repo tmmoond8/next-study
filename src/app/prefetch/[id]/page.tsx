@@ -21,20 +21,14 @@ export async function generateMetadata(
   const id = (await params).id;
   const queryClient = getQueryClient();
   void (await queryClient.prefetchQuery(getPlaceQueryOptions(id)));
-  // fetch data
-  // const product = queryClient.getQueryData(getPlaceQueryOptions(id).queryKey);
-
-  // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
-  const place = queryClient.getQueryData(getPlaceQueryOptions(id).queryKey));
-  console.log("id", id);
-  console.log("place", place);
-  console.log("queryClient caches", queryClient.getQueryCache().getAll());
+  const place = queryClient.getQueryData(getPlaceQueryOptions(id).queryKey);
+  const image = place.attributes.photos[0];
 
   return {
     title: place.data.attributes.name,
     openGraph: {
-      images: ["/some-specific-page-image.jpg", ...previousImages],
+      images: [image, ...previousImages],
     },
   };
 }

@@ -45,10 +45,10 @@ export function useGetPlaceListQuery() {
   return useSuspenseQuery(getPlaceListQueryOptions());
 }
 
-export function getTest2QueryOptions() {
+export function getAreaQueryOptions() {
   const api = "https://api.picknic.kr/api/areas/10";
   return queryOptions({
-    queryKey: ["area", "B"],
+    queryKey: ["area", "10"],
     queryFn: async () => {
       const response = await fetch(api, {
         headers: {

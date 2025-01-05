@@ -1,13 +1,12 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getTest2QueryOptions } from "./apis";
+import { getAreaQueryOptions } from "./apis";
 import React from "react";
 import Loading from "@/app/no-prefetch/loading";
 
-export function B() {
-  const { data, isLoading, error } = useQuery(getTest2QueryOptions());
-  console.log("data", data);
+export function Area() {
+  const { data, isLoading, error } = useQuery(getAreaQueryOptions());
   const area = data?.data.attributes;
 
   if (isLoading) {
