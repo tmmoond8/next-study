@@ -6,7 +6,7 @@ import { getQueryClient } from "@/providers/tanstack-query";
 export default async function PlacePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
   const queryClient = getQueryClient();
@@ -15,7 +15,7 @@ export default async function PlacePage({
 }
 
 export async function generateMetadata(
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const id = (await params).id;
