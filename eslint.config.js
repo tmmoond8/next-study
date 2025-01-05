@@ -11,6 +11,12 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    files: ["**/*.ts", "**/*.tsx"], // TypeScript 파일에만 적용
+    rules: {
+      "@typescript-eslint/no-empty-interface": "off", // 규칙 비활성화
+    },
+  },
 ];
 
 export default eslintConfig;
