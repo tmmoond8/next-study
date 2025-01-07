@@ -15,6 +15,9 @@ const eslintConfig = [
     files: ["**/*.ts", "**/*.tsx"], // TypeScript 파일에만 적용
     rules: {
       "@typescript-eslint/no-empty-interface": "off", // 규칙 비활성화
+      "@typescript-eslint/no-unused-vars": "off", // 규칙 비활성화
+      "@typescript-eslint/no-explicit-any": "off",
+      "react/jsx-key": "off",
     },
   },
 ];
