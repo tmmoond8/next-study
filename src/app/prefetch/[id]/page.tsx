@@ -23,7 +23,7 @@ export async function generateMetadata(
   void (await queryClient.prefetchQuery(getPlaceQueryOptions(id)));
   const previousImages = (await parent).openGraph?.images || [];
   const place = queryClient.getQueryData(getPlaceQueryOptions(id).queryKey);
-  const image = place.attributes.photos[0];
+  const image = place.data.attributes.photos[0];
 
   return {
     title: place.data.attributes.name,
