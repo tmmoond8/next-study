@@ -18,6 +18,15 @@ const eslintConfig = [
       "@typescript-eslint/no-unused-vars": "off", // 규칙 비활성화
       "@typescript-eslint/no-explicit-any": "off",
       "react/jsx-key": "off",
+      "@typescript-eslint/ban-types": [
+        "error",
+        {
+          types: {
+            "{}": false, // `{}` 타입 사용 경고 비활성화
+          },
+          extendDefaults: true,
+        },
+      ],
     },
   },
 ];
